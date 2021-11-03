@@ -14,12 +14,21 @@ This is a convenience provider for reading files containing `.env` notation.
 Below is an example that illustrates how to use the data source to populate a `kubernetes_config_map`.
 
 ```terraform
+terraform {
+  required_providers {
+    dotenv = {
+      source  = "jrhouston/dotenv"
+      version = "~> 1.0"
+    }
+  }
+}
+
 provider kubernetes {
   config_path = "~/.kube/config"
 }
 
 data dotenv dev_config {
-  # NOTE there must be a file called `dev.env` in the same directory as the .tf file
+  # NOTE there must be a file called `dev.env` in the same directory as the .tf config
   filename = "dev.env"
 }
 
@@ -30,5 +39,4 @@ resource kubernetes_config_map cm {
 
   data = data.dotenv.dev_config.env
 }
-
 ```

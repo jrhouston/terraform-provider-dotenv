@@ -7,11 +7,21 @@ This is a convenience provider for Terraform that provides a data source for rea
 Below is an example illustrating how to use the data source with a `kubernetes_config_map` resource. 
 
 ```hcl
+terraform {
+  required_providers {
+    dotenv = {
+      source  = "jrhouston/dotenv"
+      version = "~> 1.0"
+    }
+  }
+}
+
 provider kubernetes {
   config_path = "~/.kube/config"
 }
 
 data dotenv dev_config {
+  # NOTE there must be a file called `dev.env` in the same directory as the .tf config
   filename = "dev.env"
 }
 
@@ -22,7 +32,6 @@ resource kubernetes_config_map cm {
 
   data = data.dotenv.dev_config.env
 }
-
 ```
 
 ## Requirements
