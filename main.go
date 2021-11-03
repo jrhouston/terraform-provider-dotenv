@@ -27,7 +27,7 @@ var (
 	// goreleaser can also pass the specific commit if you want
 	// commit  string = ""
 
-	providerAddr = "registry.terraform.io/hashicorp/dotenv"
+	providerAddr = "registry.terraform.io/jrhouston/dotenv"
 )
 
 func main() {
