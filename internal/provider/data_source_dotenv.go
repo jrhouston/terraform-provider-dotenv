@@ -3,6 +3,7 @@ package provider
 import (
 	"context"
 	"crypto/sha1"
+	"encoding/base64"
 	"os"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -61,6 +62,6 @@ func dataSourceDotEnvRead(ctx context.Context, d *schema.ResourceData, meta inte
 	// generate ID as sha of the contents
 	h := sha1.New()
 	h.Write([]byte(contents))
-	d.SetId(string(h.Sum(nil)))
+	d.SetId(string(base64.StdEncoding.EncodeToString(h.Sum(nil))))
 	return nil
 }
