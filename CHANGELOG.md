@@ -1,3 +1,3 @@
-## 0.1.0 (Unreleased)
+## 1.1.0
 
-BACKWARDS INCOMPATIBILITIES / NOTES:
+- Fix data source ID containing unprintable characters 
