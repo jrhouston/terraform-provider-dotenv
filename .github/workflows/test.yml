@@ -24,7 +24,7 @@ jobs:
     steps:
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v3.4.0
+      uses: actions/checkout@v4.2.2
 
     - name: Set up Go
       uses: actions/setup-go@v4.0.0
@@ -57,7 +57,7 @@ jobs:
     steps:
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v3.4.0
+      uses: actions/checkout@v4.2.2
 
     - name: Set up Go
       uses: actions/setup-go@v4.0.0
